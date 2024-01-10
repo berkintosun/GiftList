@@ -5,7 +5,6 @@ const MerkleTree = require('../utils/MerkleTree');
 const serverUrl = 'http://localhost:1225';
 
 async function main() {
-  // TODO: how do we prove to the server we're on the nice list? 
   const name = 'Berkin Tosun';
   const merkleTree = new MerkleTree(niceList);
   const index = niceList.findIndex(n => n === name);
