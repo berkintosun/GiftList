@@ -6,10 +6,11 @@ const serverUrl = 'http://localhost:1225';
 
 async function main() {
   // TODO: how do we prove to the server we're on the nice list? 
-
-  const { data: gift } = await axios.post(`${serverUrl}/gift`, {
-    // TODO: add request body parameters here!
-  });
+  const name = 'Berkin Tosun';
+  const merkleTree = new MerkleTree(niceList);
+  const index = niceList.findIndex(n => n === name);
+  const proof = merkleTree.getProof(index);
+  const { data: gift } = await axios.post(`${serverUrl}/gift`, {proof,name});
 
   console.log({ gift });
 }
